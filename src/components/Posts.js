@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Post from "./Post";
 
-const API_URL = 'https://jsonplaceholder.typicode.com/posts' 
+const API_URL = 'https://jsonplaceholder.typicode.com/posts'
 
 function Posts() {
     const [posts, setPosts] = useState([]);
@@ -9,14 +9,29 @@ function Posts() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch(API_URL)
-            .then(response => response.json())
-            .then(posts => {
+        async function fetchData() {
+            try {
+                const res = await fetch(API_URL)
+                const posts = await res.json()
                 setPosts(posts)
-            })
-            .catch((error) => setError(error.message))
-            .finally(() => setIsLoading(false))
-    }, []);
+
+            } catch (error) {
+                setError(error.message)
+            }
+            setIsLoading(false)
+        }
+        fetchData()
+    }, [])
+
+    // useEffect(() => {
+    //     fetch(API_URL)
+    //         .then(response => response.json())
+    //         .then(posts => {
+    //             setPosts(posts)
+    //         })
+    //         .catch((error) => setError(error.message))
+    //         .finally(() => setIsLoading(false))
+    // }, []);
 
     if (error) {
         return (
@@ -31,7 +46,7 @@ function Posts() {
             {isLoading ? (<h1>Loading...</h1>)
                 : posts.map((post) => {
                     return <Post key={post.id} {...post} />
-                }) 
+                })
             }
         </div>
     )

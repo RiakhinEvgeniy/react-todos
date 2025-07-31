@@ -7,7 +7,6 @@ function Post({ title, body, userId, id }) {
             <p>USERID: {userId}</p>
             <p>{id}</p>
         </div>
-
     )
 }
 
