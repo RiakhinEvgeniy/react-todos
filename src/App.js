@@ -14,18 +14,23 @@ function App() {
       id: uuidv4()
     }    
     setTodos([...todos, newTodo])
-
   }
 
   const deleteTodoHandler = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id))
   }
 
+  const toggleTodoHandle = (id) => {
+    setTodos(todos.map((todo) => {
+      return todo.id === id ? {...todo, isCompleted: !todo.isCompleted} : {...todo}
+    }))
+  }
+
   return (
     <div className="App">
       <h1>Todo App</h1>
       <TodoForm addTodo={addTodoHandler} />
-      <TodoList todos={todos} deleteTodo={deleteTodoHandler} />
+      <TodoList todos={todos} deleteTodo={deleteTodoHandler} toggleTodo={toggleTodoHandle} />
     </div>
   );
 }
