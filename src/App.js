@@ -1,11 +1,15 @@
 import './App.css';
-import Posts from './components/Posts';
+import Info from './components/Info';
 
 function App() {
 
   return (
     <div className="App">
-      <Posts />
+      <Info />
+      <div className='info'>
+        <h1>App component heading</h1>
+        <button className='my-button'>App component button</button>
+      </div>
     </div>
   );
 }
