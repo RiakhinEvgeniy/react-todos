@@ -12,6 +12,20 @@ h1 {
   margin-top: 24px;
 }
 
+a {
+  color: aliceblue;
+  font-size: 35px;
+}
+
+nav {
+  background-color: darkslategrey;
+  padding: 5px;
+}
+
+nav a {
+  margin: 15px;
+}
+
 /* button {
   background-color: blue;
   color: white;
