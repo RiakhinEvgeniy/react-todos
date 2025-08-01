@@ -6,7 +6,13 @@
   margin: 0 auto;
 }
 
-.active {
+/* Use by defaul with NavLinl*/
+/* .active {
+  color: blue;
+  text-decoration: none;
+} */
+
+.activeLink {
   color: blue;
   text-decoration: none;
 }
