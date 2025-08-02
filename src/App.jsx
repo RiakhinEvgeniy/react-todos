@@ -4,7 +4,7 @@ import './App.css'
 import User from './components/User';
 
 function App() {
-  const [user, setUser] = useState('Mike')
+  const [user, setUser] = useState('Evgeniy')
 
   return (
     <UserContext.Provider value={user}>
