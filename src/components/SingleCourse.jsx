@@ -1,11 +1,13 @@
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import courses from '../date/courses'
-// import NotFound from './NotFound'
 import { useEffect } from 'react'
 
 function SingleCourse() {
   const params = useParams()
   const navigate = useNavigate()
+  const location = useLocation()
+  console.log(location);
+  
   const course = courses.find((course) => course.slug === params.slug)
 
 
@@ -13,14 +15,7 @@ function SingleCourse() {
     if (!course) {
       navigate('..', { relative: 'path' })
     }
-  }, [course])
-
-  // Somply show not faund
-  // if (!course) {
-  //   return (
-  //       <NotFound />
-  //   )
-  // }
+  }, [course, navigate])
 
   return (
     <>
