@@ -7,6 +7,7 @@ function Menu() {
         style={({ isActive }) => isActive ? { color: 'blue', textDecoration: 'none' } : {}}
         to="."
         end>Home</NavLink>
+        <NavLink to="courses">Courses</NavLink>
       <NavLink
         className={({ isActive }) => isActive ? 'activeLink' : 'link'}
         to="about">About</NavLink>

@@ -5,6 +5,8 @@ import About from './components/About';
 import NotFound from './components/NotFound';
 import './App.css'
 import MainLayout from './layouts/MainLayout';
+import Courses from './components/Courses';
+import SingleCourse from './components/SingleCourse';
 
 function App() {
 
@@ -15,6 +17,8 @@ function App() {
           <Route index={true} element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="contacts" element={<Contacts />} />
+          <Route path="courses" element={<Courses />} />
+          <Route path="courses/:slug" element={<SingleCourse />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
